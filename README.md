@@ -14,9 +14,9 @@ To train 2 agents to play tennis.
 [image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
 
 
-## Background
+## Overview
 
-**Environment**: In this [Tennis](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#tennis) environment, two agents control rackets to bounce a ball over a net.  Thus, the goal of each agent is to keep the ball in play.
+**Environment**: In this environment, two agents control rackets to bounce a ball over a net.  Thus, the goal of each agent is to keep the ball in play.
 
 NOTE: This environment is a modified version of Unity ML [Tennis](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#tennis). Do NOT use the Unity version.
 
@@ -34,6 +34,7 @@ NOTE: This environment is a modified version of Unity ML [Tennis](https://github
 The environment is considered solved, when the average (over 100 episodes) of those **scores** is at least +0.5.
 
 
+### Download the Environment
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
     - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux.zip)
     - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis.app.zip)
@@ -47,12 +48,14 @@ The environment is considered solved, when the average (over 100 episodes) of th
 2. Place the file in the DRLND GitHub repository, in the `p3_collab-compet/` folder, and unzip (or decompress) the file. 
 
 
-### Repository
 
-Clone the repository
+
+### Clone Repository
+
+Open up a terminal, go to the directory of your choice and clone the repository
 
 ```
-https://github.com/wjlgatech/DRL-marl-tennis.git .
+git clone https://github.com/wjlgatech/DRL-marl-tennis.git .
 ```
 
 ### How to run the codes
