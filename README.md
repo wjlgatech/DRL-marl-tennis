@@ -94,3 +94,6 @@ test.py - test the performance of the trained agent
 
 ## Results
 Environment solved in 6800 episodes with	Average Score 0.515900007802993 (>=0.5).
+
+## Credits
+Some code implementation is refered to [thedatamonk](https://github.com/thedatamonk/Unity-Tennis-Competition).
