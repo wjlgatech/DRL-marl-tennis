@@ -71,7 +71,7 @@ jupyter notebook Tennis.ipynb
 Another way is that you train the agents with
 
 ```
-python train.phy
+python train.py
 ```
 
 and test the trained agents with
