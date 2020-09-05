@@ -2,13 +2,13 @@
 
 from unityagents import UnityEnvironment
 import numpy as np
-from maddpg import MADDPGAgent
+from maddpg_agent import MADDPGAgent
 from collections import deque
 from workspaceUtils import keep_awake
 import torch
 
 
-env = UnityEnvironment(file_name="/data/Tennis_Linux_NoVis/Tennis")
+env = UnityEnvironment(file_name="Tennis")
 
 brain_name = env.brain_names[0]
 brain = env.brains[brain_name]
