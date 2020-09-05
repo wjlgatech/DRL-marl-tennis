@@ -36,18 +36,17 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 ## Instructions
 
-### STEP 0: Activate Dependencies
+### STEP 1: Activate Dependencies
 Follow the [instructions in the DRLND github repo](https://github.com/udacity/deep-reinforcement-learning#dependencies) to set up your python environment.
 
-### STEP 1: Clone Repository
+### STEP 2: Clone this Repository
 
 Open up a terminal, go to the directory of your choice and clone the repository
 
 ```
 git clone https://github.com/wjlgatech/DRL-marl-tennis.git .
 ```
-
-### STEP 2: Download the Environment
+### STEP 3: Download the Environment
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
     - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux.zip)
     - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis.app.zip)
@@ -61,8 +60,7 @@ git clone https://github.com/wjlgatech/DRL-marl-tennis.git .
 2. Place the file in the folder of the above local repository, and unzip (or decompress) the file. 
 
 
-
-### STEP 3: Run the codes
+### STEP 4: Run the codes
 
 One way is that you open the Tennis.ipynb notebook to follow instructions there:
 
@@ -88,7 +86,7 @@ The code consists of the following modules
 
 ```
 Tennis.ipynb - the main notebook
-Report_tennis.ipynb - the report of this project
+Report.ipynb - the report of this project
 maddpg_agent.py - defines the Agent that is to be trained
 maddpg_model.py - defines the MADDPG model for the Actor and the Critic network
 checkpoint_actor1.pth - is the final trained Actor network
