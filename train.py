@@ -1,5 +1,3 @@
-!pip -q install ./python
-
 from unityagents import UnityEnvironment
 import numpy as np
 from maddpg_agent import MADDPGAgent
