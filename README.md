@@ -88,9 +88,9 @@ The code consists of the following modules
 
 ```
 Tennis.ipynb - the main notebook
-Report_maddpg.ipynb - the report of this project
-MADDPG.py - defines the Agent that is to be trained
-model.py - defines the MADDPG model for the Actor and the Critic network
+Report_tennis.ipynb - the report of this project
+maddpg_agent.py - defines the Agent that is to be trained
+maddpg_model.py - defines the MADDPG model for the Actor and the Critic network
 checkpoint_actor1.pth - is the final trained Actor network
 checkpoint_criti1c.pth - is the final trained Critic network
 train.py - train the MADDPG agent
@@ -99,6 +99,3 @@ test.py - test the performance of the trained agent
 
 ## Results
 Environment solved in 5305 episodes with	Average Score 0.505 (>=0.5).
-
-## Credits
-Some code implementation is refered to [thedatamonk](https://github.com/thedatamonk/Unity-Tennis-Competition).
