@@ -39,8 +39,6 @@ The environment is considered solved, when the average (over 100 episodes) of th
 ### STEP 1: Activate Dependencies
 Follow the [instructions in the DRLND github repo](https://github.com/udacity/deep-reinforcement-learning#dependencies) to set up your python environment.
 
-To set up your python environment to run the code in this repository, follow the instructions below.
-
 1. Create (and activate) a new environment with Python 3.6.
 
 	- __Linux__ or __Mac__: 
