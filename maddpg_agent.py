@@ -25,24 +25,24 @@ update_freq = 10
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class MADDPG_Agent():
-    def __init__(self, state_size, action_size, random_seed):
+    def __init__(self, state_size, action_size, seed):
         """ Initialize an Agent object
         INPUT:
         state_size (int): dim of each state
         action_size (int): dim of each action
-        random_seed (int): random seed
+        seed (int): random seed
         
         """
         super(MADDPG_Agent, self).__init__()
         
         self.state_size = state_size
         self.action_size = action_size
-        #replace: self.random_seed = torch.manual_seed(random_seed)
+        #replace: self.seed = torch.manual_seed(seed)
         random.seed(seed)
         
         # initialise local network and target network for Actor 
-        self.actor_local = Actor(state_size, action_size, random_seed).to(device)
-        self.actor_target = Actor(state_size, action_size, random_seed).to(device)
+        self.actor_local = Actor(state_size, action_size, seed).to(device)
+        self.actor_target = Actor(state_size, action_size, seed).to(device)
         self.actor_optim = optim.Adam(self.actor_local.parameters(), lr = lr_actor)
         
         # initialize local network and target network for Critic 
@@ -52,11 +52,11 @@ class MADDPG_Agent():
 
         
         # initialize the Ornstein-Uhlenbeck noise process
-        self.noise = OUNoise((n_agents, action_size), random_seed)        
+        self.noise = OUNoise((n_agents, action_size), seed)        
         
         
         # initialize Shared Replay Buffer
-        self.memory = ReplayBuffer(buffer_size, batch_size, random_seed)
+        self.memory = ReplayBuffer(buffer_size, batch_size, seed)
         
         # initialize time step to keep track of update
         self.t_step = 0
