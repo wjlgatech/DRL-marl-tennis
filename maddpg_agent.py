@@ -37,11 +37,12 @@ class MADDPG_Agent():
         
         self.state_size = state_size
         self.action_size = action_size
-        self.random_seed = torch.manual_seed(random_seed)
+        #replace: self.random_seed = torch.manual_seed(random_seed)
+        random.seed(seed)
         
         # initialise local network and target network for Actor 
-        self.actor_local = Actor(state_size, action_size, seed).to(device)
-        self.actor_target = Actor(state_size, action_size, seed).to(device)
+        self.actor_local = Actor(state_size, action_size, random_seed).to(device)
+        self.actor_target = Actor(state_size, action_size, random_seed).to(device)
         self.actor_optim = optim.Adam(self.actor_local.parameters(), lr = lr_actor)
         
         # initialize local network and target network for Critic 
@@ -84,7 +85,7 @@ class MADDPG_Agent():
         
         
     def act(self, states, add_noise=True):
-            """For each agent returns action for given state according to current policy"""
+        """For each agent returns action for given state according to current policy"""
             states = torch.from_numpy(states).float().to(device)
             actions = np.zeros((n_agents, self.action_size))
                                
@@ -105,6 +106,7 @@ class MADDPG_Agent():
 
     
     def reset(self):
+        """reset noise for exploration"""
         self.noise.reset()
         
         
@@ -183,20 +185,29 @@ class OUNoise(object):
         self.theta = theta
         self.sigma = sigma
         self.dt = 1e-2
-        self.seed = torch.manual_seed(seed)
+        random.seed(seed)
         self.reset()
         
     def reset(self):
         """reset the internal state to mean (mu)"""
         self.state = copy.copy(self.mu)
         
+    """ feedback:  You should sample from the standard normal distribution and not from the uniform distribution. If you don't do that, your noise is highly biased since it tends to accumulate at around 0.6! 
+    
     def sample(self):
-        """Update internal state and return it as a noise sample"""
+        #Update internal state and return it as a noise sample
         x = self.state
         dx = self.theta * (self.mu - x) * self.dt + self.sigma * np.sqrt(self.dt) * np.array([np.random.normal() for i in range(len(x))])
         self.state = x + dx
         return self.state
+    """
     
+    def sample(self):
+        """Update internal state and return it as a noise sample."""
+        x = self.state
+        dx = self.theta * (self.mu - x) + self.sigma * np.random.standard_normal(self.size)
+        self.state = x + dx
+        return self.state 
     
     
 class ReplayBuffer(object):
@@ -213,7 +224,7 @@ class ReplayBuffer(object):
         self.memory = deque(maxlen=buffer_size)  # internal memory (deque)
         self.batch_size = batch_size
         self.experience = namedtuple("Experience", field_names=["state", "action", "reward", "next_state", "done"])
-        self.seed = random.seed(seed)
+        random.seed(seed)
     
     def add(self, state, action, reward, next_state, done):
         """Add a new experience to memory."""

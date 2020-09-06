@@ -4,6 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 def hidden_init(layer):
+    """ provide boundary"""
     fan_in = layer.weight.data.size()[0]
     lim = 1.0 / np.sqrt(fan_in)
     return (-lim, lim)
@@ -22,7 +23,7 @@ class Actor(nn.Module):
         """
         super(Actor, self).__init__()
         
-        self.seed = torch.manual_seed(seed)
+        torch.manual_seed(seed)
         self.fc1 = nn.Linear(state_size, fc1_units)
         self.bn1 = nn.BatchNorm1d(fc1_units)
         
@@ -67,9 +68,10 @@ class Actor(nn.Module):
 class Critic(nn.Module):
     """Critic (Value) Model"""
     def __init__(self, state_size, action_size, seed, fc1_units=512, fc2_units=256):
+        """initiate an instance for critic network"""
         super(Critic, self).__init__()
         
-        self.seed = torch.manual_seed(seed)
+        torch.manual_seed(seed)
         
         # we are including actions along with states in the first layer itself
         self.bn = nn.BatchNorm1d(state_size)
