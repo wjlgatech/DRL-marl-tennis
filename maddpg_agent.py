@@ -56,7 +56,7 @@ class MADDPG_Agent():
         
         
         # initialize Shared Replay Buffer
-        self.memory = ReplayBuffer(buffer_size, batch_size, seed)
+        self.memory = ReplayBuffer(action_size, buffer_size, batch_size, seed)
         
         # initialize time step to keep track of update
         self.t_step = 0
